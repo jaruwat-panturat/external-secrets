@@ -60,7 +60,8 @@ func (w *Grafana) Generate(ctx context.Context, jsonSpec *apiextensions.JSON, kc
 	res, err := cl.ServiceAccounts.CreateToken(&grafanasa.CreateTokenParams{
 		ServiceAccountID: *state.ServiceAccount.ServiceAccountID,
 		Body: &models.AddServiceAccountTokenCommand{
-			Name: uuid.New().String(),
+			Name:          uuid.New().String(),
+			SecondsToLive: gen.Spec.ServiceAccount.SecondsToLive,
 		},
 	}, nil)
 	if err != nil {
