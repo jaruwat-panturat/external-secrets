@@ -25527,14 +25527,13 @@ spec:
                             secondsToLive:
                               description: |-
                                 SecondsToLive is the number of seconds before the generated service account token will expire.
-                                Grafana requires this value to be set.
+                                Some Grafana deployments (e.g. AWS Managed Grafana) require this value to be set.
                               format: int64
                               minimum: 1
                               type: integer
                           required:
                             - name
                             - role
-                            - secondsToLive
                           type: object
                         url:
                           description: URL is the URL of the Grafana instance.
@@ -27882,14 +27881,13 @@ spec:
                     secondsToLive:
                       description: |-
                         SecondsToLive is the number of seconds before the generated service account token will expire.
-                        Grafana requires this value to be set.
+                        Some Grafana deployments (e.g. AWS Managed Grafana) require this value to be set.
                       format: int64
                       minimum: 1
                       type: integer
                   required:
                     - name
                     - role
-                    - secondsToLive
                   type: object
                 url:
                   description: URL is the URL of the Grafana instance.
