@@ -41,9 +41,10 @@ type GrafanaServiceAccount struct {
 	// https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/rbac-fixed-basic-role-definitions/
 	Role string `json:"role"`
 	// SecondsToLive is the number of seconds before the generated service account token will expire.
-	// Grafana requires this value to be set.
+	// Some Grafana deployments (e.g. AWS Managed Grafana) require this value to be set.
+	// +optional
 	// +kubebuilder:validation:Minimum=1
-	SecondsToLive int64 `json:"secondsToLive"`
+	SecondsToLive *int64 `json:"secondsToLive,omitempty"`
 }
 
 // GrafanaAuth defines the authentication methods for connecting to a Grafana instance.
